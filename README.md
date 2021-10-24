@@ -91,10 +91,10 @@ L'image suivante présente l'architecture logicielle du projet.<br/><br/>
 ### Tester les APIs REST
 ----
 Pour tester l'application suivre les étapes suivantes :
-* Etape 1 - gateway-service-customer-billing
-* Etape 2 - eureka-service-customer-billing
-* Etape 3 - spring-boot-mcs-openfeign-postgresql-customer-service
-* Etape 4 - spring-boot-postgresql-mcs-openfeign-billing-service
+* Etape 1 - lancer le projet `gateway-service-customer-billing`
+* Etape 2 - lancer le projet `eureka-service-customer-billing`
+* Etape 3 - lancer le projet `spring-boot-mcs-openfeign-postgresql-customer-service`
+* Etape 4 - lancer le projet `spring-boot-postgresql-mcs-openfeign-billing-service`
 
 **Tester customer-service**
 * GET `/api/customers` - Récuperer la liste des clients.
