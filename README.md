@@ -67,10 +67,12 @@ L'application doit permettre de :
 - **customer-service** :
 	* Ajouter un client
 	* Consulter tous les clients
-	* Consulter les clients dont le nom contient un mot clé
+	* Recuperer un client par Id
 - **billing-service** :
-	* Ajouter un compte
-	* Consulter un compte
+	* Ajouter une facture
+	* Liste des factures d'un client
+	* Consulter la liste des factures
+	* Consulter une facture par un Id
 
 ### Architecture globale
 ---
@@ -89,20 +91,21 @@ L'image suivante présente l'architecture logicielle du projet.<br/><br/>
 ### Tester les APIs REST
 ----
 Pour tester l'application suivre les étapes suivantes :
-* Etape 1
-* Etape 2
-* Etape 3
-* Etape 4
+* Etape 1 - gateway-service-customer-billing
+* Etape 2 - eureka-service-customer-billing
+* Etape 3 - spring-boot-mcs-openfeign-postgresql-customer-service
+* Etape 4 - spring-boot-postgresql-mcs-openfeign-billing-service
 
 **Tester customer-service**
-* GET `` - 
-* GET `` - 
-* POST `` - 
+* GET `/api/customers` - Récuperer la liste des clients.
+* GET `/api/customers/{id}` - Récuperer un client par son Id.
+* POST `/api/customers` - Ajouter un client.
 
 **Tester billing-service**
-* GET `` - 
-* GET `` - 
-* POST `` - 
+* GET `/api/invoices/{id}` -  Récuperer une facture par son Id.
+* GET `/invoicesByCustomer/{customerId}` - Récuperer une liste des facture pour un client.
+* POST `/api/invoices` - Ajouter une facture.
+* GET `/api/invoices` -  Récuperer une liste des factures.
 
 ### Conclusion
 ----
