@@ -16,6 +16,8 @@ import com.poc.donnee.dto.InvoiceRequestDTO;
 import com.poc.donnee.dto.InvoiceResponseDTO;
 import com.poc.service.applicatif.InvoiceSA;
 
+import io.swagger.v3.oas.annotations.Operation;
+
 @RestController
 @RequestMapping(path = "/api")
 public class InvoiceController {
@@ -26,21 +28,25 @@ public class InvoiceController {
 		this.invoiceSA = invoiceSA;
 	}
 
+	@Operation(summary = "find invoice by Id")
 	@GetMapping(path = "/invoices/{id}")
 	public InvoiceResponseDTO getInvoice(@PathVariable(name = "id") String invoiceId) {
 		return invoiceSA.getInvoice(invoiceId);
 	}
 
+	@Operation(summary = "find invoices by Id customer")
 	@GetMapping(path = "/invoicesByCustomer/{customerId}")
 	public List<InvoiceResponseDTO> getInvoiceByCustomer(@PathVariable String customerId) {
 		return invoiceSA.invoicesByCustomerId(customerId);
 	}
 
+	@Operation(summary = "add invoice")
 	@PostMapping(path = "/invoices")
 	public InvoiceResponseDTO saveInvoice(@RequestBody InvoiceRequestDTO invoiceRequestDTO) {
 		return invoiceSA.save(invoiceRequestDTO);
 	}
 
+	@Operation(summary = "find all invoices")
 	@GetMapping(path = "/invoices")
 	public List<InvoiceResponseDTO> allInvoices() {
 		return invoiceSA.allInvoices();
